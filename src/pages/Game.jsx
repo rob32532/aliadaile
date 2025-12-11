@@ -310,7 +310,7 @@ const Game = () => {
                 Start Game
             </button>
 
-            {!gameWinner && activeCardIndex !== null && isFlipped && timeLeft === 0 && (
+            {!gameWinner && activeCardIndex !== null && isFlipped && (
                 <button className="next-turn-btn" onClick={handleNextTurn}>
                     Next turn
                 </button>
