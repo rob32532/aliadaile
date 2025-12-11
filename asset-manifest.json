@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aliadaile/static/css/main.d97f215d.css",
-    "main.js": "/aliadaile/static/js/main.31b1f007.js",
+    "main.js": "/aliadaile/static/js/main.5b70c46b.js",
     "static/media/4.png": "/aliadaile/static/media/4.82b2bed553b9b37e0ebd.png",
     "static/media/3.png": "/aliadaile/static/media/3.29165ab812821f3f4d95.png",
     "static/media/2.png": "/aliadaile/static/media/2.ed62f364f1673b16dbd7.png",
@@ -11,10 +11,10 @@
     "static/media/jsMath-cmbx10.ttf": "/aliadaile/static/media/jsMath-cmbx10.b818f772125f0729789d.ttf",
     "index.html": "/aliadaile/index.html",
     "main.d97f215d.css.map": "/aliadaile/static/css/main.d97f215d.css.map",
-    "main.31b1f007.js.map": "/aliadaile/static/js/main.31b1f007.js.map"
+    "main.5b70c46b.js.map": "/aliadaile/static/js/main.5b70c46b.js.map"
   },
   "entrypoints": [
     "static/css/main.d97f215d.css",
-    "static/js/main.31b1f007.js"
+    "static/js/main.5b70c46b.js"
   ]
 }
