@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import * as Tone from 'tone';
 import Card from '../components/Card';
-import WinModal from '../components/WinModal'; // Импортируем модальное окно
+import WinModal from '../components/WinModal';
 import { eWords, mWords, hWords } from '../components/words';
 import { explainComplications, showComplications } from '../components/complications';
 import './Game.scss';
@@ -93,12 +94,47 @@ const Game = () => {
         setDeck(newDeck);
     }, [isMobile]);
 
+
+    const playTimeUpSound = () => {
+        const synth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: { type: "sine" },
+            envelope: {
+                attack: 0.01,
+                decay: 0.3,
+                sustain: 0,
+                release: 1.2
+            }
+        }).toDestination();
+        
+        synth.volume.value = -2;
+
+        const now = Tone.now();
+        synth.triggerAttackRelease("G5", "0.5", now);
+        synth.triggerAttackRelease("C6", "0.5", now + 0.2);
+    };
+
+    useEffect(() => {
+        let soundInterval = null;
+
+        if (timeLeft === 0 && activeCardIndex !== null && !gameWinner) {
+            playTimeUpSound();
+            soundInterval = setInterval(() => {
+                playTimeUpSound();
+            }, 3000);
+        }
+
+        return () => {
+            if (soundInterval) clearInterval(soundInterval);
+        };
+    }, [timeLeft, activeCardIndex, gameWinner]);
+
     useEffect(() => {
         let timer = null;
         if (activeCardIndex !== null && isFlipped && !gameWinner) {
             timer = setInterval(() => {
                 setTimeLeft(prev => {
                     if (prev <= 0) {
+                        playTimeUpSound();
                         clearInterval(timer);
                         return 0;
                     }
@@ -122,7 +158,8 @@ const Game = () => {
         return `${mins} min ${secs} sec`;
     };
 
-    const handleStartGame = () => {
+    const handleStartGame = async () => {
+        await Tone.start();
         setIsGameStarted(true);
         setTimeout(() => {
             setIsDeckOpen(true);
