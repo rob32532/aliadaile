@@ -1,0 +1,223 @@
+.game-page {
+    background-color: #e8e0d9;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        pointer-events: none;
+        z-index: 10;
+
+        .score-board,
+        .timer {
+            pointer-events: auto;
+        }
+
+        .score-board {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .score-item {
+                background-color: #bfaec2;
+                padding: 10px 20px;
+                border-radius: 20px;
+                display: flex;
+                justify-content: space-between;
+                width: 180px;
+                color: white;
+                font-weight: bold;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s, background-color 0.3s;
+
+                &.active {
+                    transform: scale(1.1);
+                    background-color: #8e738f;
+                    border: 2px solid white;
+                }
+
+                .value {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+
+        .timer {
+            background-color: #bfaec2;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+
+            &.warning {
+                background-color: #ff4444;
+                animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both infinite;
+            }
+        }
+    }
+
+    @keyframes shake {
+
+        10%,
+        90% {
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        20%,
+        80% {
+            transform: translate3d(2px, 0, 0);
+        }
+
+        30%,
+        50%,
+        70% {
+            transform: translate3d(-4px, 0, 0);
+        }
+
+        40%,
+        60% {
+            transform: translate3d(4px, 0, 0);
+        }
+    }
+}
+
+.game-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.card-fan {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.next-turn-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #8e738f;
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    &:active {
+        transform: translateX(-50%) scale(0.95);
+    }
+}
+
+.start-game-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+
+    &.hidden {
+        transform: translateX(-50%) translateY(150px);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:hover {
+        transform: translateX(-50%) scale(1.05);
+        background-color: #45a049;
+    }
+
+    &:active {
+        transform: translateX(-50%) scale(0.95);
+    }
+}
+
+@media (max-width: 768px) {
+    .game-page {
+        .header {
+            padding: 10px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+
+            .score-board {
+                flex-direction: row;
+                width: fit-content;
+                justify-content: flex-start;
+                gap: 5px;
+
+                .score-item {
+                    width: auto;
+                    flex: 1;
+                    padding: 5px 10px;
+                    font-size: 0.9rem;
+
+                    .value {
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+
+            .timer {
+                padding: 5px 15px;
+                font-size: 1rem;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        }
+    }
+
+    .next-turn-btn,
+    .start-game-btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        bottom: 120px;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .game-area {
+        padding-bottom: 100px;
+    }
+}

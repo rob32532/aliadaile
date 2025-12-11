@@ -1,0 +1,298 @@
+@font-face {
+  font-family: 'IMFeGPrm';
+  src: url('./fonts/IMFeGPrm28P.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'jsMath';
+  src: url('./fonts/jsMath-cmbx10.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #EAE5DD;
+  font-family: 'IMFeGPrm', serif;
+  overflow: hidden;
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #3E3E3E;
+}
+
+.help-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #666;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #3E3E3E;
+}
+
+.start-btn {
+  background-color: #8E6E86;
+  color: white;
+  border: none;
+  padding: 12px 60px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'IMFeGPrm', serif;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+
+  &:hover {
+    background-color: #7a5d72;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.teams-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.team-item {
+  background-color: #C5B4BE;
+  border-radius: 25px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  position: relative;
+}
+
+.team-input {
+  background: transparent;
+  border: none;
+  font-family: 'IMFeGPrm', serif;
+  font-size: 1.5rem;
+  color: white;
+  width: 100%;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.remove-icon {
+  color: #666;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 10px;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+@font-face {
+  font-family: 'IMFeGPrm';
+  src: url('./fonts/IMFeGPrm28P.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'jsMath';
+  src: url('./fonts/jsMath-cmbx10.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #EAE5DD;
+  font-family: 'IMFeGPrm', serif;
+  overflow: hidden;
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #3E3E3E;
+}
+
+.help-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #666;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #3E3E3E;
+}
+
+.start-btn {
+  background-color: #8E6E86;
+  color: white;
+  border: none;
+  padding: 12px 60px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'IMFeGPrm', serif;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+
+  &:hover {
+    background-color: #7a5d72;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.teams-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.team-item {
+  background-color: #C5B4BE;
+  border-radius: 25px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  position: relative;
+}
+
+.team-input {
+  background: transparent;
+  border: none;
+  font-family: 'IMFeGPrm', serif;
+  font-size: 1.5rem;
+  color: white;
+  width: 100%;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.remove-icon {
+  color: #666;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 10px;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.add-btn {
+  font-size: 2rem;
+  color: #3E3E3E;
+  cursor: pointer;
+  margin-top: 10px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .start-btn {
+    font-size: 1.2rem;
+  }
+
+  .help-icon {
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+  }
+}

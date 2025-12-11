@@ -1,0 +1,237 @@
+.game-card {
+    width: 320px;
+    height: auto;
+    aspect-ratio: 340/500;
+    perspective: 1000px;
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.5s ease, bottom 0.5s ease, left 0.5s ease, top 0.5s ease, opacity 0.5s ease;
+
+    &.active {
+        z-index: 100 !important;
+    }
+
+    &.interactive:not(.active):hover {
+        .card-inner {
+            transform: translateY(-30px);
+        }
+    }
+
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        border-radius: 52px;
+    }
+
+    &.flipped .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: hidden;
+        border-radius: 52px;
+    }
+
+    .card-back {
+        background-image: url('../img/back.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-front {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: none;
+
+        &.type-1 {
+            background-image: url('../img/1.png');
+        }
+
+        &.type-2 {
+            background-image: url('../img/2.png');
+        }
+
+        &.type-3 {
+            background-image: url('../img/3.png');
+        }
+
+        &.type-4 {
+            background-image: url('../img/4.png');
+        }
+
+        &.type-1,
+        &.type-2 {
+            .card-content .words-list .word-item {
+                background-color: #3F9831F5;
+                border: 2px solid #0B3D03;
+            }
+        }
+
+        &.type-3,
+        &.type-4 {
+            .card-content .words-list .word-item {
+                background-color: #9F3229F5;
+                border: 2px solid #651708;
+            }
+        }
+
+        color: white;
+        transform: rotateY(180deg);
+        padding: 10px 15px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin: 0;
+                font-size: 3.5rem;
+                color: #2D2D2D;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            }
+
+            .subtitle {
+                margin: 1px 0 5px;
+                font-size: 1.1rem;
+                opacity: 0.9;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .complication {
+                margin: 0 0 15px;
+                font-size: 1rem;
+                font-style: italic;
+                background: rgba(0, 0, 0, 0.3);
+                padding: 4px 8px;
+                border-radius: 10px;
+                display: inline-block;
+            }
+
+            .words-list {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                flex-grow: 1;
+
+                .word-item {
+                    background: rgba(255, 255, 255, 0.2);
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 1.1rem;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                    transition: background-color 0.2s, box-shadow 0.2s;
+
+                    &:nth-child(odd) {
+                        margin-right: 30px;
+                    }
+
+                    &:nth-child(even) {
+                        margin-left: 30px;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+
+                    &.selected {
+                        background-color: #d4edda;
+                        color: #333;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+
+                    .label {
+                        font-weight: bold;
+                    }
+
+                    .value {
+                        font-weight: bold;
+                        font-size: 1.3rem;
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .game-card {
+        width: 80vw;
+        max-width: 300px;
+
+        .card-front {
+            padding: 10px 15px 15px;
+
+            .card-content {
+                h2 {
+                    font-size: 3rem;
+                }
+
+                .subtitle {
+                    font-size: 1rem;
+                    margin-bottom: 5px;
+                }
+
+                .complication {
+                    font-size: 0.9rem;
+                    margin-bottom: 15px;
+                    padding: 4px 8px;
+                }
+
+                .words-list {
+                    .word-item {
+                        padding: 5px 10px;
+                        font-size: 1rem;
+                        border-radius: 20px;
+
+                        &:nth-child(odd) {
+                            margin-right: 20px;
+                        }
+
+                        &:nth-child(even) {
+                            margin-left: 20px;
+                        }
+
+                        .value {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
